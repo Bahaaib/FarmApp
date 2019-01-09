@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FarmApp</string>
+
+    <string name="vege_tab">خضراوات</string>
+    <string name="fruits_tab">فواكه</string>
+    <string name="offers_tab">عروض</string>
+
+
+
+</resources>
