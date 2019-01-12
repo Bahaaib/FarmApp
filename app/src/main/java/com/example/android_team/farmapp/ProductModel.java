@@ -3,6 +3,7 @@ package com.example.android_team.farmapp;
 public class ProductModel {
     private String name_ar;
     private int price;
+    private String img_url;
 
     public ProductModel() {
         //Required Empty constructor
@@ -22,5 +23,13 @@ public class ProductModel {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getImg_url() {
+        return img_url;
+    }
+
+    public void setImg_url(String img_url) {
+        this.img_url = img_url;
     }
 }

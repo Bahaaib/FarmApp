@@ -4,7 +4,8 @@
     <string name="vege_tab">خضراوات</string>
     <string name="fruits_tab">فواكه</string>
     <string name="offers_tab">عروض</string>
-
+    <string name="is_available">متوفر</string>
+    <string name="is_not_available">غير متوفر</string>
 
 
 </resources>

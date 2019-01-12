@@ -22,11 +22,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new VegeFragment();
+                return new OffersFragment();
             case 1:
                 return new FruitsFragment();
             case 2:
-                return new OffersFragment();
+                return new VegeFragment();
             default:
                 return null;
         }

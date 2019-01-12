@@ -14,6 +14,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -23,7 +25,11 @@ public class HomeActivity extends AppCompatActivity {
     private DatabaseReference mRef;
     private ArrayList<ProductModel> productList;
 
-    private final String FRUITS_DB = "fruits";
+    //Firebase Storage
+    FirebaseStorage storage;
+    StorageReference storageRef, fruitsRef, vegeRef;
+
+
     private final String VEGETABLES_DB = "vegetables";
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -39,28 +45,35 @@ public class HomeActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         mRef = database.getReference();
 
-        callDatabae(FRUITS_DB);
+        //Storage
+        storage = FirebaseStorage.getInstance();
+        storageRef = storage.getReference();
+
+
+        //callDatabae(FRUITS_DB);
         callDatabae(VEGETABLES_DB);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //Assigning all used objects to their views
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout = findViewById(R.id.tab_layout);
 
 
         //Adding Three tabs to the screen
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.vege_tab));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.fruits_tab));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.offers_tab));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.fruits_tab));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.vege_tab));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
         //Setting up the View Pager that allows flipping activity fragments horizontally like a page
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = findViewById(R.id.pager);
         final PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
 
         viewPager.setAdapter(pagerAdapter);
+        //Set Viewpager initially to Vegetables tab
+        viewPager.setCurrentItem(2);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -107,4 +120,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
     }
+
+
 }
