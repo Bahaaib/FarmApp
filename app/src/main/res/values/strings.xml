@@ -6,6 +6,9 @@
     <string name="offers_tab">عروض</string>
     <string name="is_available">متوفر</string>
     <string name="is_not_available">غير متوفر</string>
+    <string name="notification_title">قائمة الأسعار اليومية</string>
+    <string name="notification_body">عزيزي العميل: نرجو العلم بأنه قد تم تحديث قائمة الأسعار الخاصة بهذا اليوم</string>
+    <string name="notification_daily_description">daily notification</string>
 
 
 </resources>

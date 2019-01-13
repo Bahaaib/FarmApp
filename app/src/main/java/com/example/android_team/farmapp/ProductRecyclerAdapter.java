@@ -71,6 +71,14 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
 
         //Here where all the glory being made..!
         public void BindView(final int position) {
+
+            if (!adapterModel.get(position).getAvailability()) {
+                productLabel.setBackgroundColor(context.getResources().getColor(R.color.colorAccent));
+                availabilityText.setText(context.getResources().getString(R.string.is_not_available));
+                availabilityText.setTextSize(12);
+                availabilityText.setPadding(0, 4, 0, 0);
+            }
+
             productName.setText(adapterModel.get(position).getName_ar());
             productPrice.setText(adapterModel.get(position).getPrice() + " EGP");
 

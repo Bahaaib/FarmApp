@@ -1,9 +1,14 @@
 package com.example.android_team.farmapp;
 
 public class ProductModel {
+
     private String name_ar;
+
     private int price;
+
     private String img_url;
+
+    private boolean availability;
 
     public ProductModel() {
         //Required Empty constructor
@@ -31,5 +36,13 @@ public class ProductModel {
 
     public void setImg_url(String img_url) {
         this.img_url = img_url;
+    }
+
+    public boolean getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(boolean available) {
+        availability = available;
     }
 }

@@ -1,36 +1,13 @@
 package com.example.android_team.farmapp;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private FirebaseDatabase database;
-    private DatabaseReference mRef;
-    private ArrayList<ProductModel> productList;
-
-    //Firebase Storage
-    FirebaseStorage storage;
-    StorageReference storageRef, fruitsRef, vegeRef;
-
-
-    private final String VEGETABLES_DB = "vegetables";
     private Toolbar toolbar;
     private TabLayout tabLayout;
 
@@ -39,19 +16,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        productList = new ArrayList<>();
-
-        FirebaseApp.initializeApp(this);
-        database = FirebaseDatabase.getInstance();
-        mRef = database.getReference();
-
-        //Storage
-        storage = FirebaseStorage.getInstance();
-        storageRef = storage.getReference();
-
-
-        //callDatabae(FRUITS_DB);
-        callDatabae(VEGETABLES_DB);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -96,30 +60,6 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    private void callDatabae(final String child){
-        mRef.child(child).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                fetchData(dataSnapshot);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private void fetchData(DataSnapshot dataSnapshot) {
-        for (DataSnapshot db : dataSnapshot.getChildren()) {
-            ProductModel model = db.getValue(ProductModel.class);
-            productList.add(model);
-            Log.i("Statuss", model.getName_ar() + " " + model.getPrice());
-        }
-
-
-
-    }
 
 
 }

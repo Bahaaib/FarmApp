@@ -83,6 +83,7 @@ public class FruitsFragment extends Fragment {
         mRef.child(FRUITS_DB).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Reset List of products
                 fruitsList.clear();
                 fetchData(dataSnapshot);
             }
@@ -99,7 +100,7 @@ public class FruitsFragment extends Fragment {
             ProductModel model = db.getValue(ProductModel.class);
             fruitsList.add(model);
             adapter.notifyDataSetChanged();
-            Log.i("Statuss", model.getName_ar() + " " + model.getPrice());
+            Log.i("Statuss", model.getName_ar() + " " + model.getAvailability());
         }
     }
 
