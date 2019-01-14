@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.OffersFragment">
 
 
-</FrameLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/offers_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkerGray"
+        android:scrollbars="vertical" />
+
+    <ImageView
+        android:id="@+id/no_offers_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/no_offers_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:text="@string/no_offers_text"
+        android:textColor="@color/colorDarker"
+        android:textSize="18dp"
+        android:visibility="invisible" />
+
+
+</RelativeLayout>

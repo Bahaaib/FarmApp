@@ -9,6 +9,11 @@
     <string name="notification_title">قائمة الأسعار اليومية</string>
     <string name="notification_body">عزيزي العميل: نرجو العلم بأنه قد تم تحديث قائمة الأسعار الخاصة بهذا اليوم</string>
     <string name="notification_daily_description">daily notification</string>
+    <string name="toolbar_text">Farm Store</string>
+    <string name="contact_us_text">للتواصل معنا و حجز الأوردرات</string>
+    <string name="mobile_number">01020026392</string>
+    <string name="farm_address">25 تقسيم الطرابيشي - متفرع من محمود رشوان - أمام مكتبة الفاروق - الدور الأرضي شقة (1)</string>
+    <string name="no_offers_text">لا توجد عروض متاحة حالياً</string>
 
 
 </resources>

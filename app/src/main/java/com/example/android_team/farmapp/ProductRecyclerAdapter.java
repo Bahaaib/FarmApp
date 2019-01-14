@@ -80,7 +80,10 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
             }
 
             productName.setText(adapterModel.get(position).getName_ar());
-            productPrice.setText(adapterModel.get(position).getPrice() + " EGP");
+
+            float fprice = adapterModel.get(position).getPrice();
+            String price = String.format("%.2f", fprice);
+            productPrice.setText(price + " EGP");
 
             Picasso.with(context)
                     .load(adapterModel.get(position).getImg_url())

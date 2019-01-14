@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/contact_us_text"
+        android:textColor="@color/colorWhite"
+        android:textSize="21dp" />
+
+
+    <TextView
+        android:id="@+id/mobile_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="@string/mobile_number"
+        android:textColor="@color/colorBlack"
+        android:textSize="18dp" />
+
+    <ImageView
+        android:id="@+id/facebook_page"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/facebook_icon" />
+
+    <TextView
+        android:id="@+id/farm_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:drawableTop="@drawable/ic_home"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:text="@string/farm_address"
+        android:textColor="@color/colorBlack"
+        android:textSize="18dp" />
+
+
+</RelativeLayout>

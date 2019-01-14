@@ -4,7 +4,7 @@ public class ProductModel {
 
     private String name_ar;
 
-    private int price;
+    private float price;
 
     private String img_url;
 
@@ -22,11 +22,11 @@ public class ProductModel {
         this.name_ar = name_ar;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

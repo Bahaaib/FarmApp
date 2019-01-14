@@ -102,7 +102,9 @@ public class VegeFragment extends Fragment {
             ProductModel model = db.getValue(ProductModel.class);
             vegesList.add(model);
             adapter.notifyDataSetChanged();
-            Log.i("Statuss", model.getName_ar() + " " + model.getPrice());
+            float fprice = model.getPrice();
+            String price = String.format("%.2f", fprice);
+            Log.i("Statuss", model.getName_ar() + " " + price);
         }
     }
 

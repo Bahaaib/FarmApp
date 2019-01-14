@@ -2,14 +2,25 @@ package com.example.android_team.farmapp;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.android_team.farmapp.Dialogs.InfoDialog;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private final String INFO_TAG = "infoDialog";
+
     private Toolbar toolbar;
     private TabLayout tabLayout;
+    private DialogFragment infoDialog;
+    private Button infoBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +68,31 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //Pop up info dialog
+        infoBtn = findViewById(R.id.info_btn);
+        infoDialog = new InfoDialog();
+
+
+        infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showInfoDialog();
+            }
+        });
+
+
+
+
+    }
+
+    void showInfoDialog() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        Fragment prev = getSupportFragmentManager().findFragmentByTag(INFO_TAG);
+        if (prev != null) {
+            transaction.remove(prev);
+        }
+
+        transaction.add(infoDialog, INFO_TAG).commit();
 
     }
 
