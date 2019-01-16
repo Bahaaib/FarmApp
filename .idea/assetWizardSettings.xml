@@ -28,8 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_home" />
-                            <entry key="sourceFile" value="C:\Users\Android_Team" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_asset_1" />
+                            <entry key="sourceFile" value="C:\Users\Android_Team\Desktop\Asset 1.svg" />
                           </map>
                         </option>
                       </PersistentState>
