@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -102,9 +101,9 @@ public class VegeFragment extends Fragment {
             ProductModel model = db.getValue(ProductModel.class);
             vegesList.add(model);
             adapter.notifyDataSetChanged();
-            float fprice = model.getPrice();
+            /*float fprice = model.getPrice();
             String price = String.format("%.2f", fprice);
-            Log.i("Statuss", model.getName_ar() + " " + price);
+            Log.i("Statuss", model.getName_ar() + " " + price);*/
         }
     }
 

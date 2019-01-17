@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ProductRecyclerAdapter extends RecyclerView.Adapter {
 
@@ -82,8 +83,10 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
             productName.setText(adapterModel.get(position).getName_ar());
 
             float fprice = adapterModel.get(position).getPrice();
-            String price = String.format("%.2f", fprice);
-            productPrice.setText(price + " EGP");
+            String price = String.format(Locale.getDefault(), "%.2f", fprice);
+            String unit = context.getResources().getString(R.string.currency_unit);
+            String total = price + unit;
+            productPrice.setText(total);
 
             Picasso.with(context)
                     .load(adapterModel.get(position).getImg_url())

@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:elevation="6dp"
+            android:elevation="@dimen/elevation"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:layout_collapseMode="pin"
             app:layout_scrollFlags="scroll|enterAlways"
@@ -27,11 +27,11 @@
 
                 <Button
                     android:id="@+id/info_btn"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="@dimen/info_button_width"
+                    android:layout_height="@dimen/info_button_height"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="@dimen/info_button_margin_end"
                     android:background="@drawable/ic_info" />
 
                 <TextView
@@ -41,7 +41,7 @@
                     android:layout_centerVertical="true"
                     android:text="@string/toolbar_text"
                     android:textColor="@color/colorWhite"
-                    android:textSize="24dp"
+                    android:textSize="@dimen/app_title_font_size"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="?attr/colorPrimary"
-            android:elevation="6dp"
+            android:elevation="@dimen/elevation"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 

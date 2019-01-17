@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--TODO:Home Activity-->
+    <dimen name="elevation">6dp</dimen>
+    <dimen name="info_button_width">25dp</dimen>
+    <dimen name="info_button_height">25dp</dimen>
+    <dimen name="info_button_margin_end">10dp</dimen>
+    <dimen name="app_title_font_size">24sp</dimen>
+
+    <!--TODO:Dialog Info-->
+    <dimen name="title_tv_width">50dp</dimen>
+    <dimen name="title_tv_font_size">21sp</dimen>
+    <dimen name="mobile_tv_margin_top">70dp</dimen>
+    <dimen name="mobile_tv_drawable_padding">8dp</dimen>
+    <dimen name="mobile_tv_font_size">18sp</dimen>
+    <dimen name="fb_icon_size">50dp</dimen>
+    <dimen name="fb_icon_margin_top">110dp</dimen>
+    <dimen name="address_tv_margin_top">160dp</dimen>
+    <dimen name="address_tv_drawable_padding">4dp</dimen>
+    <dimen name="address_tv_padding_bottom">10dp</dimen>
+    <dimen name="address_tv_font_size">18sp</dimen>
+
+
+    <!--TODO:Offer Card-->
+    <dimen name="rl_height">200dp</dimen>
+    <dimen name="rl_padding_top">6dp</dimen>
+    <dimen name="card_corner_radius">3dp</dimen>
+
+    <!--TODO:Product Card-->
+    <dimen name="rl_padding">8dp</dimen>
+    <dimen name="pc_cv_height">230dp</dimen>
+    <dimen name="pc_cv_corner_radius">3dp</dimen>
+    <dimen name="pc_img_height">180dp</dimen>
+    <dimen name="pc_border_margins">8dp</dimen>
+    <dimen name="pc_border_margin_bottom">4dp</dimen>
+    <dimen name="pc_title_tv_margin_top">15dp</dimen>
+    <dimen name="pc_title_tv_margin_end">8dp</dimen>
+    <dimen name="pc_title_tv_font_size">13sp</dimen>
+    <dimen name="pc_price_tv_margin_start">8dp</dimen>
+    <dimen name="pc_price_tv_margin_top">15dp</dimen>
+    <dimen name="pc_price_tv_font_size">15sp</dimen>
+    <dimen name="pc_label_width">50dp</dimen>
+    <dimen name="pc_label_height">30dp</dimen>
+    <dimen name="pc_label_margin_top">6dp</dimen>
+    <dimen name="pc_label_font_size">16sp</dimen>
+    <dimen name="pc_border_width">0.5dp</dimen>
+</resources>

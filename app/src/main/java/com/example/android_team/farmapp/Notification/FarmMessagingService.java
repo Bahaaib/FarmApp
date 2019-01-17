@@ -18,6 +18,7 @@ import com.google.firebase.messaging.RemoteMessage;
 public class FarmMessagingService extends FirebaseMessagingService {
 
     private final String NOTIFICATION_CHANNEL_ID = "channel_id";
+    private final String NOTIFICATION_NAME = "My Notifications";
     private NotificationManager notificationManager;
 
     @Override
@@ -41,7 +42,7 @@ public class FarmMessagingService extends FirebaseMessagingService {
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.ic_notification)
-                .setTicker("Hearty365")
+                .setTicker(getResources().getString(R.string.ticker_string))
                 .setContentIntent(notificationIntent)
                 .setPriority(Notification.PRIORITY_MAX)
                 .setContentTitle(this.getResources().getString(R.string.notification_title))
@@ -54,7 +55,7 @@ public class FarmMessagingService extends FirebaseMessagingService {
 
         //Create Notification for Oreo devices and higher..
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "My Notifications", NotificationManager.IMPORTANCE_HIGH);
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, NOTIFICATION_NAME, NotificationManager.IMPORTANCE_HIGH);
 
             // Configure the notification channel.
             notificationChannel.setDescription(this.getResources().getString(R.string.notification_daily_description));

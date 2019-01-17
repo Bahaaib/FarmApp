@@ -14,6 +14,8 @@
     <string name="mobile_number">01020026392</string>
     <string name="farm_address">25 تقسيم الطرابيشي - متفرع من محمود رشوان - أمام مكتبة الفاروق - الدور الأرضي شقة (1)</string>
     <string name="no_offers_text">لا توجد عروض متاحة حالياً</string>
+    <string name="currency_unit"> EGP</string>
+    <string name="ticker_string">Farm</string>
 
 
 </resources>
