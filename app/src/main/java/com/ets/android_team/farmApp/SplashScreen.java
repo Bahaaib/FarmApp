@@ -1,4 +1,4 @@
-package com.example.android_team.farmapp;
+package com.ets.android_team.farmApp;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.example.android_team.farmapp.Dialogs;
+package com.ets.android_team.farmApp.Dialogs;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android_team.farmapp.R;
+import com.ets.android_team.farmApp.R;
 
 public class InfoDialog extends DialogFragment {
 

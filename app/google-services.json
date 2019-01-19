@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:274019545986:android:7bf8ebc73f9875fd",
         "android_client_info": {
-          "package_name": "com.example.android_team.farmapp"
+          "package_name": "com.ets.android_team.farmApp"
         }
       },
       "oauth_client": [

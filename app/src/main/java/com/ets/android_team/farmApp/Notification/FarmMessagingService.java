@@ -1,4 +1,4 @@
-package com.example.android_team.farmapp.Notification;
+package com.ets.android_team.farmApp.Notification;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -10,8 +10,8 @@ import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 
-import com.example.android_team.farmapp.HomeActivity;
-import com.example.android_team.farmapp.R;
+import com.ets.android_team.farmApp.HomeActivity;
+import com.ets.android_team.farmApp.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

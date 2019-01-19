@@ -1,4 +1,4 @@
-package com.example.android_team.farmapp;
+package com.ets.android_team.farmApp;
 
 public class OfferModel {
 

@@ -4,7 +4,7 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.android_team.farmapp"
+        applicationId "com.ets.android_team.farmApp"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -16,7 +16,7 @@ android {
         release{
             storeFile file("farm.jks")
             storePassword "1234Android"
-            keyAlias "key0"
+            keyAlias "farmkey00"
             keyPassword "1234Android"
         }
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android_team.farmapp">
+    package="com.ets.android_team.farmApp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,7 +16,7 @@
             android:resource="@drawable/ic_notification" />
 
         <activity
-            android:name=".HomeActivity"
+            android:name="com.ets.android_team.farmApp.HomeActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -25,13 +25,13 @@
 
         </activity>
 
-        <service android:name=".Notification.FarmMessagingService">
+        <service android:name="com.ets.android_team.farmApp.Notification.FarmMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name=".SplashScreen">
+        <activity android:name="com.ets.android_team.farmApp.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

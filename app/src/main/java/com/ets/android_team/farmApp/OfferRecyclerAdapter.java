@@ -1,4 +1,4 @@
-package com.example.android_team.farmapp;
+package com.ets.android_team.farmApp;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

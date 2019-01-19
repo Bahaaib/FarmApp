@@ -1,12 +1,12 @@
-package com.example.android_team.farmapp;
+package com.ets.android_team.farmApp;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.android_team.farmapp.Fragments.FruitsFragment;
-import com.example.android_team.farmapp.Fragments.OffersFragment;
-import com.example.android_team.farmapp.Fragments.VegeFragment;
+import com.ets.android_team.farmApp.Fragments.FruitsFragment;
+import com.ets.android_team.farmApp.Fragments.OffersFragment;
+import com.ets.android_team.farmApp.Fragments.VegeFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 

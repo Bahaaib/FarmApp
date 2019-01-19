@@ -1,4 +1,4 @@
-package com.example.android_team.farmapp;
+package com.ets.android_team.farmApp;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -11,7 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.android_team.farmapp.Dialogs.InfoDialog;
+import com.ets.android_team.farmApp.Dialogs.InfoDialog;
 
 public class HomeActivity extends AppCompatActivity {
 

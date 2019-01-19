@@ -1,4 +1,4 @@
-package com.example.android_team.farmapp.Fragments;
+package com.ets.android_team.farmApp.Fragments;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android_team.farmapp.OfferModel;
-import com.example.android_team.farmapp.OfferRecyclerAdapter;
-import com.example.android_team.farmapp.R;
+import com.ets.android_team.farmApp.OfferModel;
+import com.ets.android_team.farmApp.OfferRecyclerAdapter;
+import com.ets.android_team.farmApp.R;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
