@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FarmApp</string>
+    <string name="app_name">Farm</string>
 
     <string name="vege_tab">خضراوات</string>
     <string name="fruits_tab">فواكه</string>
