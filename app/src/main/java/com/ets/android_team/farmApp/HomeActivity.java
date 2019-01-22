@@ -36,9 +36,9 @@ public class HomeActivity extends AppCompatActivity {
 
 
         //Adding Three tabs to the screen
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.offers_tab));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.fruits_tab));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.vege_tab));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.fruits_tab));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.offers_tab));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
@@ -47,8 +47,6 @@ public class HomeActivity extends AppCompatActivity {
         final PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
 
         viewPager.setAdapter(pagerAdapter);
-        //Set Viewpager initially to Vegetables tab
-        viewPager.setCurrentItem(2);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

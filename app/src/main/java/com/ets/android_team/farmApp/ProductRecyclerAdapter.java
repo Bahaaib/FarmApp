@@ -72,12 +72,19 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
 
         //Here where all the glory being made..!
         public void BindView(final int position) {
+            boolean isAvailable = adapterModel.get(position).getAvailability();
 
-            if (!adapterModel.get(position).getAvailability()) {
+            if (!isAvailable) {
                 productLabel.setBackgroundColor(context.getResources().getColor(R.color.colorAccent));
                 availabilityText.setText(context.getResources().getString(R.string.is_not_available));
                 availabilityText.setTextSize(12);
                 availabilityText.setPadding(0, 4, 0, 0);
+
+                adapterModel.get(position).setPrice(0);
+            } else {
+                productLabel.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
+                availabilityText.setText(context.getResources().getString(R.string.is_available));
+                availabilityText.setTextSize(16);
             }
 
             productName.setText(adapterModel.get(position).getName_ar());
@@ -85,7 +92,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
             float fprice = adapterModel.get(position).getPrice();
             String price = String.format(Locale.getDefault(), "%.2f", fprice);
             String unit = context.getResources().getString(R.string.currency_unit);
-            String total = price + unit;
+            String total = price + " " + unit;
             productPrice.setText(total);
 
             Picasso.with(context)
