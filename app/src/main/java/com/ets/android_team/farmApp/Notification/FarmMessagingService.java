@@ -45,10 +45,10 @@ public class FarmMessagingService extends FirebaseMessagingService {
                 .setTicker(getResources().getString(R.string.ticker_string))
                 .setContentIntent(notificationIntent)
                 .setPriority(Notification.PRIORITY_MAX)
-                .setContentTitle(this.getResources().getString(R.string.notification_title))
-                .setContentText(this.getResources().getString(R.string.notification_body))
+                .setContentTitle(remoteMessage.getNotification().getTitle())
+                .setContentText(remoteMessage.getNotification().getBody())
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(this.getResources().getString(R.string.notification_body)));
+                        .bigText(remoteMessage.getNotification().getBody()));
 
         notificationManager.notify(1, notificationBuilder.build());
 

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ets.android_team.farmApp.Dialogs.InfoDialog;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -26,6 +27,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        FirebaseMessaging.getInstance().subscribeToTopic("messages");
 
 
         toolbar = findViewById(R.id.toolbar);
