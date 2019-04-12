@@ -9,6 +9,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.google.android.gms.ads.MobileAds;
+
 public class SplashScreen extends AppCompatActivity {
 
     private final int SPLASH_TIMER = 2500;
@@ -19,6 +21,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
+        MobileAds.initialize(this, "ca-app-pub-6702076183097498~9274122854");
 
         startSplashAnimations();
 
