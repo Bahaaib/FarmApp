@@ -10,6 +10,7 @@
 
 
     <android.support.v7.widget.CardView
+        android:id="@+id/product_card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/pc_cv_height"
         card_view:cardCornerRadius="@dimen/pc_cv_corner_radius"
@@ -48,8 +49,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/pc_title_tv_margin_top"
                 android:fontFamily="sans-serif-medium"
-                android:paddingEnd="@dimen/pc_title_tv_margin_end"
                 android:paddingStart="@dimen/pc_title_tv_margin_end"
+                android:paddingEnd="@dimen/pc_title_tv_margin_end"
                 android:text="مانجو"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/pc_title_tv_font_size" />
@@ -62,8 +63,8 @@
                 android:layout_below="@+id/product_img"
                 android:layout_alignParentLeft="true"
                 android:layout_marginStart="@dimen/pc_price_tv_margin_start"
-                android:layout_marginEnd="@dimen/pc_title_tv_margin_end"
                 android:layout_marginTop="@dimen/pc_price_tv_margin_top"
+                android:layout_marginEnd="@dimen/pc_title_tv_margin_end"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/pc_price_tv_font_size" />

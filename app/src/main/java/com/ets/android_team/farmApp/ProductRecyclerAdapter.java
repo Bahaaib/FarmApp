@@ -1,7 +1,9 @@
 package com.ets.android_team.farmApp;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -20,6 +24,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
     // The cards container List & The Parent Activity context
     private Context context;
     private ArrayList<ProductModel> adapterModel;
+    private InterstitialAd mInterstitalAd;
 
     {
         adapterModel = new ArrayList<>();
@@ -28,6 +33,9 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
     public ProductRecyclerAdapter(Context context, ArrayList<ProductModel> adapterModel) {
         this.context = context;
         this.adapterModel = adapterModel;
+        mInterstitalAd = new InterstitialAd(context);
+        mInterstitalAd.setAdUnitId("ca-app-pub-6702076183097498/9338536189");
+        mInterstitalAd.loadAd(new AdRequest.Builder().build());
     }
 
     //Here We tell the RecyclerView what to show at each element of it..it'd be a cardView!
@@ -57,6 +65,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
         private FrameLayout productLabel;
         private TextView availabilityText, productName, productPrice;
         private ImageView productImg;
+        private CardView productCard;
 
         public ProductViewHolder(View itemView) {
             super(itemView);
@@ -66,6 +75,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
             productName = itemView.findViewById(R.id.product_name);
             productPrice = itemView.findViewById(R.id.product_price);
             productImg = itemView.findViewById(R.id.product_img);
+            productCard = itemView.findViewById(R.id.product_card);
 
         }
 
@@ -99,6 +109,19 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
                     .load(adapterModel.get(position).getImg_url())
                     .fit()
                     .into(productImg);
+
+
+            productCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mInterstitalAd.isLoaded()) {
+                        mInterstitalAd.show();
+                    } else {
+                        Log.i("Ads Statuss", "Ad failed to load");
+
+                    }
+                }
+            });
 
 
         }
