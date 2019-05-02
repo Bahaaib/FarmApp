@@ -38,7 +38,6 @@ public class InfoDialog extends DialogFragment {
         View view = inflater.inflate(R.layout.dialog_info, container, false);
 
         mobileNumer = view.findViewById(R.id.mobile_number);
-        facebookPage = view.findViewById(R.id.facebook_page);
         context = getActivity();
 
         final String mobile = mobileNumer.getText().toString();

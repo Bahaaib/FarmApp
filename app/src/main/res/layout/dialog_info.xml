@@ -21,20 +21,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/mobile_tv_margin_top"
-        android:drawableLeft="@drawable/ic_phone"
         android:drawablePadding="@dimen/mobile_tv_drawable_padding"
         android:gravity="center"
         android:text="@string/mobile_number"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/mobile_tv_font_size" />
-
-    <ImageView
-        android:id="@+id/facebook_page"
-        android:layout_width="@dimen/fb_icon_size"
-        android:layout_height="@dimen/fb_icon_size"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/fb_icon_margin_top"
-        android:src="@drawable/facebook_icon" />
 
     <TextView
         android:id="@+id/farm_address"
@@ -42,10 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/address_tv_margin_top"
-        android:drawableTop="@drawable/ic_home"
         android:drawablePadding="@dimen/address_tv_drawable_padding"
         android:gravity="center"
         android:paddingBottom="@dimen/address_tv_padding_bottom"
+        android:textIsSelectable="true"
         android:text="@string/farm_address"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/address_tv_font_size" />

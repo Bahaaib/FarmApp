@@ -18,7 +18,7 @@
     <dimen name="address_tv_margin_top">160dp</dimen>
     <dimen name="address_tv_drawable_padding">4dp</dimen>
     <dimen name="address_tv_padding_bottom">10dp</dimen>
-    <dimen name="address_tv_font_size">18sp</dimen>
+    <dimen name="address_tv_font_size">16sp</dimen>
 
 
     <!--TODO:Offer Card-->
