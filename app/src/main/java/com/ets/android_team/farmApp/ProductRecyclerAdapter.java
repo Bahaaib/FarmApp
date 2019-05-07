@@ -13,18 +13,22 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class ProductRecyclerAdapter extends RecyclerView.Adapter {
+public class ProductRecyclerAdapter extends RecyclerView.Adapter implements RewardedVideoAdListener {
 
     //Here we recieve from the calling Fragment :
     // The cards container List & The Parent Activity context
     private Context context;
     private ArrayList<ProductModel> adapterModel;
-    private InterstitialAd mInterstitalAd;
+    private RewardedVideoAd rewardedVideoAd;
 
     {
         adapterModel = new ArrayList<>();
@@ -33,9 +37,9 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
     public ProductRecyclerAdapter(Context context, ArrayList<ProductModel> adapterModel) {
         this.context = context;
         this.adapterModel = adapterModel;
-        mInterstitalAd = new InterstitialAd(context);
-        mInterstitalAd.setAdUnitId("ca-app-pub-6702076183097498/9338536189");
-        mInterstitalAd.loadAd(new AdRequest.Builder().build());
+        rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(context);
+        rewardedVideoAd.setRewardedVideoAdListener(this);
+
     }
 
     //Here We tell the RecyclerView what to show at each element of it..it'd be a cardView!
@@ -53,9 +57,56 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
 
     }
 
+    private void loadRewardedVideoAd() {
+        rewardedVideoAd.loadAd("ca-app-pub-6702076183097498/6513925667",
+                new AdRequest.Builder().build());
+    }
+
     @Override
     public int getItemCount() {
         return adapterModel.size();
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+        Log.i("Ad Statuss", "Ad Loaded");
+        rewardedVideoAd.show();
+
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+        Log.i("Ad Statuss", "Ad Opened");
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+        Log.i("Ad Statuss", "Ad Started");
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        Log.i("Ad Statuss", "Ad closed");
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+        Log.i("Ad Statuss", "Ad Left App");
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+        Log.i("Ad Statuss", "Ad Failed to load");
+    }
+
+    @Override
+    public void onRewardedVideoCompleted() {
+        Log.i("Ad Statuss", "Ad Completed");
     }
 
     //Here we bind all the children views of each cardView with their corresponding
@@ -110,22 +161,18 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
                     .fit()
                     .into(productImg);
 
-
             productCard.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mInterstitalAd.isLoaded()) {
-                        mInterstitalAd.show();
-                    } else {
-                        Log.i("Ads Statuss", "Ad failed to load");
-
-                    }
+                    loadRewardedVideoAd();
                 }
             });
-
 
         }
 
 
     }
+
+
 }
+
