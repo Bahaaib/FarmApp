@@ -52,7 +52,7 @@ public class InfoDialog extends DialogFragment {
             }
         });
 
-        facebookPage.setOnClickListener(new View.OnClickListener() {
+        /*facebookPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent facebookIntent;
@@ -65,7 +65,7 @@ public class InfoDialog extends DialogFragment {
 
                 startActivity(facebookIntent);
             }
-        });
+        });*/
 
 
         return view;
