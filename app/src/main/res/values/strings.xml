@@ -16,6 +16,7 @@
     <string name="no_offers_text">لا توجد عروض متاحة حالياً</string>
     <string name="currency_unit"> EGP</string>
     <string name="ticker_string">Farm</string>
+    <string name="device_ads_counter">Device Ads Counter</string>
 
 
 </resources>

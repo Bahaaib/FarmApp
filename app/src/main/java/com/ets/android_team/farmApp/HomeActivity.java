@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import com.ets.android_team.farmApp.Dialogs.CounterDialog;
 import com.ets.android_team.farmApp.Dialogs.InfoDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     private final String INFO_TAG = "infoDialog";
+    private final String COUNTER_TAG = "infoDialog";
     private static String DEVICE_ID;
     private final String DEVICES_DB = "devices";
 
@@ -33,7 +35,9 @@ public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private DialogFragment infoDialog;
+    private DialogFragment counterDialog;
     private Button infoBtn;
+    private Button counterBtn;
     //Firebase DB
     private FirebaseDatabase database;
     private DatabaseReference mRef;
@@ -106,6 +110,16 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //Pop up info dialog
+        counterBtn = findViewById(R.id.counter_btn);
+        counterDialog = new CounterDialog();
+        counterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCounterDialog();
+            }
+        });
+
 
     }
 
@@ -117,6 +131,17 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         transaction.add(infoDialog, INFO_TAG).commit();
+
+    }
+
+    void showCounterDialog() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        Fragment prev = getSupportFragmentManager().findFragmentByTag(COUNTER_TAG);
+        if (prev != null) {
+            transaction.remove(prev);
+        }
+
+        transaction.add(counterDialog, COUNTER_TAG).commit();
 
     }
 
