@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.ets.android_team.farmApp.R;
 
+import static com.ets.android_team.farmApp.HomeActivity.counterCurrentValue;
+
 public class CounterDialog extends DialogFragment {
 
     private TextView counterTV;
@@ -24,9 +26,10 @@ public class CounterDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dialog_info, container, false);
+        View view = inflater.inflate(R.layout.dialog_counter, container, false);
 
         counterTV = view.findViewById(R.id.counter_tv);
+        counterTV.setText(String.valueOf(counterCurrentValue));
 
 
         return view;

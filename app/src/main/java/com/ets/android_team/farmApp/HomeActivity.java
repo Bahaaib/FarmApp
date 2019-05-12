@@ -44,6 +44,7 @@ public class HomeActivity extends AppCompatActivity implements CounterListener {
     private DatabaseReference mRef;
     private ArrayList<String> devicesList;
     private int counterOldValue;
+    public static int counterCurrentValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,9 +113,10 @@ public class HomeActivity extends AppCompatActivity implements CounterListener {
             }
         });
 
-        //Pop up info dialog
+        //Pop up counter dialog
         counterBtn = findViewById(R.id.counter_btn);
         counterDialog = new CounterDialog();
+
         counterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +132,7 @@ public class HomeActivity extends AppCompatActivity implements CounterListener {
         Fragment prev = getSupportFragmentManager().findFragmentByTag(INFO_TAG);
         if (prev != null) {
             transaction.remove(prev);
+            Log.i("statuss", "Info is NOT NULL");
         }
 
         transaction.add(infoDialog, INFO_TAG).commit();
@@ -141,6 +144,7 @@ public class HomeActivity extends AppCompatActivity implements CounterListener {
         Fragment prev = getSupportFragmentManager().findFragmentByTag(COUNTER_TAG);
         if (prev != null) {
             transaction.remove(prev);
+            Log.i("statuss", "Counter is NOT NULL");
         }
 
         transaction.add(counterDialog, COUNTER_TAG).commit();
@@ -169,6 +173,7 @@ public class HomeActivity extends AppCompatActivity implements CounterListener {
             String device = db.getKey();
             if (device.equals(DEVICE_ID)) {
                 counterOldValue = db.getValue(Integer.class);
+                counterCurrentValue = counterOldValue;
             }
             devicesList.add(device);
         }
@@ -196,7 +201,8 @@ public class HomeActivity extends AppCompatActivity implements CounterListener {
 
     @Override
     public void onCounterIncreased() {
-        mRef.child(DEVICES_DB).child(DEVICE_ID).setValue(counterOldValue + 1);
+        counterCurrentValue = counterOldValue + 1;
+        mRef.child(DEVICES_DB).child(DEVICE_ID).setValue(counterCurrentValue);
         Log.i("Statuss", "Counter UPDATED!");
     }
 }
