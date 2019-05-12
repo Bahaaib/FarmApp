@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
@@ -29,6 +28,8 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter implements Rewa
     private Context context;
     private ArrayList<ProductModel> adapterModel;
     private RewardedVideoAd rewardedVideoAd;
+    private String testAd = "ca-app-pub-3940256099942544/5224354917";
+    private CounterListener counterListener;
 
     {
         adapterModel = new ArrayList<>();
@@ -39,6 +40,8 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter implements Rewa
         this.adapterModel = adapterModel;
         rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(context);
         rewardedVideoAd.setRewardedVideoAdListener(this);
+        counterListener = (CounterListener) context;
+
 
     }
 
@@ -101,12 +104,13 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter implements Rewa
 
     @Override
     public void onRewardedVideoAdFailedToLoad(int i) {
-        Log.i("Ad Statuss", "Ad Failed to load");
+        Log.i("Ad Statuss", "Ad Failed to load" + i);
     }
 
     @Override
     public void onRewardedVideoCompleted() {
         Log.i("Ad Statuss", "Ad Completed");
+        counterListener.onCounterIncreased();
     }
 
     //Here we bind all the children views of each cardView with their corresponding

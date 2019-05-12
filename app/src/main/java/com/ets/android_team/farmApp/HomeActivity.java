@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -24,10 +25,10 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements CounterListener {
 
     private final String INFO_TAG = "infoDialog";
-    private final String COUNTER_TAG = "infoDialog";
+    private final String COUNTER_TAG = "counterDialog";
     private static String DEVICE_ID;
     private final String DEVICES_DB = "devices";
 
@@ -42,6 +43,7 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference mRef;
     private ArrayList<String> devicesList;
+    private int counterOldValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,6 +167,9 @@ public class HomeActivity extends AppCompatActivity {
     private void fetchData(DataSnapshot dataSnapshot) {
         for (DataSnapshot db : dataSnapshot.getChildren()) {
             String device = db.getKey();
+            if (device.equals(DEVICE_ID)) {
+                counterOldValue = db.getValue(Integer.class);
+            }
             devicesList.add(device);
         }
 
@@ -189,4 +194,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onCounterIncreased() {
+        mRef.child(DEVICES_DB).child(DEVICE_ID).setValue(counterOldValue + 1);
+        Log.i("Statuss", "Counter UPDATED!");
+    }
 }
