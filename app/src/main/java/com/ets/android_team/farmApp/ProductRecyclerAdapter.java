@@ -3,7 +3,6 @@ package com.ets.android_team.farmApp;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,24 +10,22 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class ProductRecyclerAdapter extends RecyclerView.Adapter implements RewardedVideoAdListener {
+public class ProductRecyclerAdapter extends RecyclerView.Adapter {
 
     //Here we recieve from the calling Fragment :
     // The cards container List & The Parent Activity context
     private Context context;
     private ArrayList<ProductModel> adapterModel;
-    private RewardedVideoAd rewardedVideoAd;
-    private String testAd = "ca-app-pub-3940256099942544/5224354917";
+    private InterstitialAd interstitialAd;
+    private String testAd = "ca-app-pub-6702076183097498/9338536189";
     private CounterListener counterListener;
 
     {
@@ -38,8 +35,11 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter implements Rewa
     public ProductRecyclerAdapter(Context context, ArrayList<ProductModel> adapterModel) {
         this.context = context;
         this.adapterModel = adapterModel;
-        rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(context);
-        rewardedVideoAd.setRewardedVideoAdListener(this);
+        interstitialAd = new InterstitialAd(context);
+        interstitialAd.setAdUnitId(testAd);
+        interstitialAd.loadAd(new AdRequest.Builder().build());
+
+        //init listener
         counterListener = (CounterListener) context;
 
 
@@ -60,58 +60,12 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter implements Rewa
 
     }
 
-    private void loadRewardedVideoAd() {
-        rewardedVideoAd.loadAd("ca-app-pub-6702076183097498/6513925667",
-                new AdRequest.Builder().build());
-    }
 
     @Override
     public int getItemCount() {
         return adapterModel.size();
     }
 
-    @Override
-    public void onRewardedVideoAdLoaded() {
-        Log.i("Ad Statuss", "Ad Loaded");
-        rewardedVideoAd.show();
-
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-        Log.i("Ad Statuss", "Ad Opened");
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-        Log.i("Ad Statuss", "Ad Started");
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        Log.i("Ad Statuss", "Ad closed");
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-        Log.i("Ad Statuss", "Ad Left App");
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-        Log.i("Ad Statuss", "Ad Failed to load" + i);
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-        Log.i("Ad Statuss", "Ad Completed");
-        counterListener.onCounterIncreased();
-    }
 
     //Here we bind all the children views of each cardView with their corresponding
     // actions to show & interact with them
@@ -168,7 +122,17 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter implements Rewa
             productCard.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    loadRewardedVideoAd();
+                    if (interstitialAd.isLoaded()) {
+                        interstitialAd.show();
+                    }
+                }
+            });
+
+            interstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdClicked() {
+                    counterListener.onCounterIncreased();
+
                 }
             });
 
