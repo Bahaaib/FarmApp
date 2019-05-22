@@ -36,7 +36,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter {
         this.context = context;
         this.adapterModel = adapterModel;
         interstitialAd = new InterstitialAd(context);
-        interstitialAd.setAdUnitId(testAd);
+        interstitialAd.setAdUnitId("ca-app-pub-6702076183097498/6546305551");
         interstitialAd.loadAd(new AdRequest.Builder().build());
 
         //init listener
